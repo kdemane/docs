@@ -64,14 +64,14 @@ ${snippet(meta.snippets.setup)}
 
 Create your `User` and `UserProvider`.
 
-The `UserProvider` must implement the `JWTUserProviderInterface` (see `/source/AppBundle/Security/A0UserProvider`). This class should implement two methods:
+The `UserProvider` must implement the `JWTUserProviderInterface` (see `/src/AppBundle/Security/A0UserProvider`). This class should implement two methods:
 
 - `loadUserByJWT`: receives the decoded JWT `access_token` and returns a User.
 
 - `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role `IS_AUTHENTICATED_ANONYMOUSLY`).
 
 ::: note
-Both of the above methods can throw an `AuthenticationException`. If this exception is thrown by `loadUserByJWT`, the it will treat the user as being anonymous. If `getAnonymousUser` throw this exception, a `401 Unauthorized` will be returned.
+Both of the above methods can throw an `AuthenticationException`. If this exception is thrown by `loadUserByJWT`, it will treat the user as being anonymous. If `getAnonymousUser` throw this exception, a `401 Unauthorized` will be returned.
 :::
 
 Provide configuration for the `UserProvider` in the `services.yml` file located in `app/config`.
